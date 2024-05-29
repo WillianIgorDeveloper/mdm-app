@@ -13,6 +13,7 @@ import { BaseLayout } from "@/presentation/layouts/base-layout"
 import { HomePage } from "@/presentation/pages/home"
 import { InitiativePage } from "@/presentation/pages/initiative"
 import { DungeonGeneratorPage } from "@/presentation/pages/dungeon-generator"
+import { CharacterSheet } from "@/presentation/pages/character-sheet"
 import { NotFoundPage } from "@/presentation/pages/not-found"
 // OnlyPublicRoutes
 import { LoginPage } from "@/presentation/pages/login"
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route index element={<HomePage />} />
             <Route path="/iniciativa" element={<InitiativePage />} />
             <Route path="/gerador-de-masmorras" element={<DungeonGeneratorPage />} />
+            <Route path="/character-sheet" element={<CharacterSheet />} />
           </Route>
           <Route element={<OnlyPublicRoutes />}>
             <Route path="/login" element={<LoginPage />} />

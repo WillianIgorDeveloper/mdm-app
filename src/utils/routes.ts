@@ -4,4 +4,5 @@ export const ROUTES = {
   DUNGEON_GENERATOR: "/gerador-de-masmorras",
   LOGIN: "/login",
   PROFILE: "/profile",
+  CHARACTER_SHEET: "/character-sheet",
 }

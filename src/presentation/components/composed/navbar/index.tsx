@@ -24,7 +24,7 @@ export function Navbar() {
           </Link>
 
           {/* Mobile menu */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Sheet>
               <SheetTrigger>
                 <MenuIcon />
@@ -45,6 +45,18 @@ export function Navbar() {
                     >
                       <Button variant="link" className="text-md">
                         Iniciativa
+                      </Button>
+                    </NavLink>
+                  </SheetTrigger>
+                  <SheetTrigger asChild>
+                    <NavLink
+                      to={ROUTES.CHARACTER_SHEET}
+                      className={({ isActive }) =>
+                        isActive ? "bg-card rounded-lg" : ""
+                      }
+                    >
+                      <Button variant="link" className="text-md">
+                        Ficha de personagem
                       </Button>
                     </NavLink>
                   </SheetTrigger>
@@ -73,13 +85,21 @@ export function Navbar() {
           </div>
 
           {/* Desktop menu */}
-          <nav className="gap-6 hidden md:flex">
+          <nav className="gap-6 hidden lg:flex">
             <NavLink
               to={ROUTES.INITIATIVE}
               className={({ isActive }) => (isActive ? "bg-card rounded-lg" : "")}
             >
               <Button variant="link" className="text-md">
                 Iniciativa
+              </Button>
+            </NavLink>
+            <NavLink
+              to={ROUTES.CHARACTER_SHEET}
+              className={({ isActive }) => (isActive ? "bg-card rounded-lg" : "")}
+            >
+              <Button variant="link" className="text-md">
+                Ficha de personagem
               </Button>
             </NavLink>
             <NavLink
@@ -98,7 +118,7 @@ export function Navbar() {
           </nav>
         </div>
       </header>
-      <div className="py-7 md:py-10" />
+      <div className="py-7 sm:py-10" />
     </>
   )
 }
