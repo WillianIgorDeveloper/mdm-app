@@ -1,26 +1,17 @@
-import { Button } from "@/presentation/components/ui/button"
-import { ROUTES } from "@/utils/routes"
-import { Link } from "react-router-dom"
-
 export function HomePage() {
   return (
-    <div>
-      <header>
-        <nav className="flex">
-          <Link to={ROUTES.INITIATIVE}>
-            <Button variant="link">Iniciativa</Button>
-          </Link>
-          <Link to={ROUTES.DUNGEON_GENERATOR}>
-            <Button variant="link">Gerador de dungeon</Button>
-          </Link>
-          <Link to={ROUTES.LOGIN}>
-            <Button variant="link">Login</Button>
-          </Link>
-        </nav>
-      </header>
-      <div className="py-20 flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-black">MDM</h1>
+    <main>
+      <div className="container text-center p-5 h-screen flex flex-col items-center justify-center gap-3 max-w-sm md:flex-row-reverse md:text-left md:max-w-none md:gap-5 md:h-[80vh] lg:gap-8 xl:gap-28">
+        <img src="/icon.svg" alt="Atlas" className="md:max-w-xs" />
+        <div className="space-y-3 md:max-w-xs lg:max-w-md xl:max-w-xl">
+          <h2 className="text-3xl p-1 font-serif font-black text-primary lg:text-4xl xl:text-6xl">
+            Mestre das Masmorras
+          </h2>
+          <p className="px-3 md:p-0">
+            Tudo o que você precisa para criar e gerenciar suas aventuras de RPG.
+          </p>
+        </div>
       </div>
-    </div>
+    </main>
   )
 }

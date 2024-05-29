@@ -7,6 +7,8 @@ import { OnlyPublicRoutes, ProtectedRoutes } from "@/middleware"
 // State management
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 const queryClient = new QueryClient()
+// Layouts
+import { BaseLayout } from "@/presentation/layouts/base-layout"
 // Pages
 import { HomePage } from "@/presentation/pages/home"
 import { InitiativePage } from "@/presentation/pages/initiative"
@@ -22,9 +24,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="/iniciativa" element={<InitiativePage />} />
-          <Route path="/gerador-de-masmorras" element={<DungeonGeneratorPage />} />
+          <Route element={<BaseLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/iniciativa" element={<InitiativePage />} />
+            <Route path="/gerador-de-masmorras" element={<DungeonGeneratorPage />} />
+          </Route>
           <Route element={<OnlyPublicRoutes />}>
             <Route path="/login" element={<LoginPage />} />
           </Route>

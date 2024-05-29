@@ -7,6 +7,10 @@ module.exports = {
   theme: {
     container: { center: true },
     extend: {
+      fontFamily: {
+        sans: ["Work Sans", "sans-serif"],
+        serif: ["Charm", "serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

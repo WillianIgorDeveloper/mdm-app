@@ -5,6 +5,8 @@ import { SkullIcon, User2Icon, XIcon } from "lucide-react"
 import { useInitiativeContext } from "../context"
 // Entities
 import type { InitiativeCardType } from "../entities"
+// Utils
+import { cn } from "@/utils/cn"
 // Components
 import { Input } from "@/presentation/components/ui/input"
 import { Card } from "@/presentation/components/ui/card"
@@ -15,13 +17,21 @@ import {
 } from "@/presentation/components/ui/input-otp"
 
 // ==== Component ====
-export function InitiativeCard({ card }: { card: InitiativeCardType }) {
+export function InitiativeCard({
+  card,
+  active,
+}: { card: InitiativeCardType; active: boolean }) {
   // Hooks
   const context = useInitiativeContext()
 
   // Return
   return (
-    <Card className="w-full max-w-xs flex flex-col justify-center gap-2 p-3 relative">
+    <Card
+      className={cn(
+        "w-full max-w-xs flex flex-col justify-center gap-2 p-3 relative",
+        active && "ring-2 ring-purple ring-offset-green",
+      )}
+    >
       <XIcon
         size={28}
         className="absolute top-2 right-2"
