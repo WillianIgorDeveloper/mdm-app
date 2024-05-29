@@ -14,7 +14,6 @@ import { useInitiativeContext } from "../../context"
 // Components
 import { Button } from "@/presentation/components/ui/button"
 import { InitiativeCard } from "../../components/initiative-card"
-import { Navbar } from "@/presentation/components/composed/navbar"
 
 // ==== Component ====
 export function InitiativePageDefault() {
