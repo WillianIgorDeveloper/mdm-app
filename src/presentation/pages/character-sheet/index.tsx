@@ -1,6 +1,9 @@
 // ==== Imports ====
 // Externals
+import { Link } from "react-router-dom"
 import { CircleAlertIcon, FilePlus2Icon, User2Icon } from "lucide-react"
+// Utils
+import { ROUTES } from "@/utils/routes"
 // Components
 import { Badge } from "@/presentation/components/ui/badge"
 import { Button } from "@/presentation/components/ui/button"
@@ -16,9 +19,11 @@ export function CharacterSheet() {
   // Return
   return (
     <div className="flex flex-col gap-3 container p-3">
-      <Button className="gap-3 ml-auto">
-        <FilePlus2Icon /> Criar
-      </Button>
+      <Link to={ROUTES.CHARACTER_SHEET_CREATION} className="ml-auto">
+        <Button className="gap-3">
+          <FilePlus2Icon /> Criar
+        </Button>
+      </Link>
 
       <Alert>
         <AlertTitle className="flex gap-3 items-center">

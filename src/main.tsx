@@ -14,6 +14,7 @@ import { HomePage } from "@/presentation/pages/home"
 import { InitiativePage } from "@/presentation/pages/initiative"
 import { DungeonGeneratorPage } from "@/presentation/pages/dungeon-generator"
 import { CharacterSheet } from "@/presentation/pages/character-sheet"
+import { CreationPage } from "@/presentation/pages/character-sheet/pages/creation"
 import { NotFoundPage } from "@/presentation/pages/not-found"
 // OnlyPublicRoutes
 import { LoginPage } from "@/presentation/pages/login"
@@ -27,15 +28,18 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route element={<BaseLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="/iniciativa" element={<InitiativePage />} />
-            <Route path="/gerador-de-masmorras" element={<DungeonGeneratorPage />} />
-            <Route path="/character-sheet" element={<CharacterSheet />} />
+            <Route path="iniciativa" element={<InitiativePage />} />
+            <Route path="gerador-de-masmorras" element={<DungeonGeneratorPage />} />
+            <Route path="ficha-de-personagem">
+              <Route index element={<CharacterSheet />} />
+              <Route path="criar" element={<CreationPage />} />
+            </Route>
           </Route>
           <Route element={<OnlyPublicRoutes />}>
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="login" element={<LoginPage />} />
           </Route>
           <Route element={<ProtectedRoutes />}>
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="profile" element={<ProfilePage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
