@@ -16,6 +16,7 @@ type InitiativeContextType = {
   handleNextTurn: () => void
   handlePrevTurn: () => void
   handleStartCombat: () => void
+  handleStopCombat: () => void
 }
 
 type InitiativeProviderType = {
@@ -110,6 +111,11 @@ export function InitiativeProvider({ children }: InitiativeProviderType) {
     setCurrentTurn(0)
   }
 
+  function handleStopCombat() {
+    setRound(-1)
+    setCurrentTurn(-1)
+  }
+
   // Effects
   useEffect(() => {
     // Save on local storage when the initiativeCards change, if it's not the first render
@@ -140,6 +146,7 @@ export function InitiativeProvider({ children }: InitiativeProviderType) {
         handleNextTurn,
         handlePrevTurn,
         handleStartCombat,
+        handleStopCombat,
       }}
     >
       {children}

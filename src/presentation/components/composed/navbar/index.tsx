@@ -98,7 +98,7 @@ export function Navbar() {
           </nav>
         </div>
       </header>
-      <div className="py-7" />
+      <div className="py-7 md:py-10" />
     </>
   )
 }
