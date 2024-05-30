@@ -1,6 +1,6 @@
 export function HomePage() {
   return (
-    <main className="container text-center py-20 px-5 flex flex-col items-center justify-center gap-3 max-w-sm md:flex-row-reverse md:text-left md:max-w-none md:gap-5 md:h-[80vh] lg:gap-8 xl:gap-28">
+    <main className="container text-center py-20 px-5 flex flex-col items-center justify-center gap-3 max-w-sm md:max-w-none md:gap-5 md:h-[80vh] lg:gap-8 xl:gap-28">
       <img
         src="/icon.svg"
         alt="Atlas"
