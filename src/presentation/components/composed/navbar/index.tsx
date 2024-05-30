@@ -17,7 +17,7 @@ export function Navbar() {
   // Return
   return (
     <>
-      <header className="w-full fixed top-0 left-0 bg-background">
+      <header className="w-full fixed top-0 left-0 bg-background z-20">
         <div className="container p-3 flex items-center justify-between sm:p-6 lg:p-5">
           <Link to={ROUTES.HOME}>
             <h1 className="font-serif text-2xl font-bold">MDM</h1>

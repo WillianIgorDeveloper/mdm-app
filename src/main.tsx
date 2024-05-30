@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import "./index.css"
 // Middlewares
 import { OnlyPublicRoutes, ProtectedRoutes } from "@/middleware"
+import { CharacterSheetActionMiddleware } from "./presentation/pages/character-sheet/action-middleware"
 // State management
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 const queryClient = new QueryClient()
@@ -13,8 +14,11 @@ import { BaseLayout } from "@/presentation/layouts/base-layout"
 import { HomePage } from "@/presentation/pages/home"
 import { InitiativePage } from "@/presentation/pages/initiative"
 import { DungeonGeneratorPage } from "@/presentation/pages/dungeon-generator"
-import { CharacterSheet } from "@/presentation/pages/character-sheet"
-import { CreationPage } from "@/presentation/pages/character-sheet/pages/creation"
+import { CharacterSheetPage } from "@/presentation/pages/character-sheet"
+import { CharacterSheetDefaultPage } from "./presentation/pages/character-sheet/pages/default"
+import { CharacterSheetCreationPage } from "@/presentation/pages/character-sheet/pages/creation"
+import { CharacterSheetEditPage } from "@/presentation/pages/character-sheet/pages/edit"
+import { CharacterSheetUpPage } from "@/presentation/pages/character-sheet/pages/up"
 import { NotFoundPage } from "@/presentation/pages/not-found"
 // OnlyPublicRoutes
 import { LoginPage } from "@/presentation/pages/login"
@@ -30,9 +34,13 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route index element={<HomePage />} />
             <Route path="iniciativa" element={<InitiativePage />} />
             <Route path="gerador-de-masmorras" element={<DungeonGeneratorPage />} />
-            <Route path="ficha-de-personagem">
-              <Route index element={<CharacterSheet />} />
-              <Route path="criar" element={<CreationPage />} />
+            <Route path="ficha-de-personagem" element={<CharacterSheetPage />}>
+              <Route index element={<CharacterSheetDefaultPage />} />
+              <Route path="criar" element={<CharacterSheetCreationPage />} />
+              <Route element={<CharacterSheetActionMiddleware />}>
+                <Route path="editar/:id" element={<CharacterSheetEditPage />} />
+                <Route path="upar/:id" element={<CharacterSheetUpPage />} />
+              </Route>
             </Route>
           </Route>
           <Route element={<OnlyPublicRoutes />}>
