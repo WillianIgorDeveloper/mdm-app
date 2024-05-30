@@ -72,6 +72,14 @@ module.exports = {
           from: { opacity: "0", transform: "translateX(10px)" },
           to: { opacity: "1", transform: "translateX(0)" },
         },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-down": {
+          from: { opacity: "0", transform: "translateY(-10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "caret-blink": "caret-blink 1.25s ease-out infinite",
@@ -79,6 +87,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-left": "fade-left 0.2s ease-out",
         "fade-right": "fade-right 0.2s ease-out",
+        "fade-up": "fade-up 0.2s ease-out",
+        "fade-down": "fade-down 0.2s ease-out",
       },
     },
   },
