@@ -3,7 +3,7 @@ import { Navbar } from "@/presentation/components/composed/navbar"
 
 export function BaseLayout() {
   return (
-    <div className="container">
+    <div className="container py-3">
       <Navbar />
       <Outlet />
     </div>
