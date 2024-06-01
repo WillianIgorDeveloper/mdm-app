@@ -5,6 +5,7 @@ type CharacterSheetContextType = {
   // states
   characters: any[]
   // Handlers
+  handleDeleteCharacter: ({ character }: { character: any }) => void
   // Functions
   checkCharacterExists: (id: string) => boolean
 }
@@ -21,9 +22,19 @@ const CharacterSheetContext = createContext<CharacterSheetContextType | undefine
 // ==== Provider ====
 export function CharacterSheetProvider({ children }: CharacterSheetProviderType) {
   // states
-  const [characters, setCharacters] = useState([])
+  const [characters, setCharacters] = useState<any[]>([])
 
   // Handlers
+  function handleDeleteCharacter({ character }: { character: any }) {
+    setCharacters((characters) =>
+      characters.filter((char) => char.id !== character.id),
+    )
+
+    localStorage.setItem(
+      "characters",
+      JSON.stringify(characters.filter((char) => char.id !== character.id)),
+    )
+  }
 
   // Functions
   function checkCharacterExists(id: string) {
@@ -44,6 +55,7 @@ export function CharacterSheetProvider({ children }: CharacterSheetProviderType)
         // States
         characters,
         // Handlers
+        handleDeleteCharacter,
         // Functions
         checkCharacterExists,
       }}

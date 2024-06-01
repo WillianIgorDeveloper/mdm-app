@@ -3,6 +3,7 @@ import { z } from "zod"
 export const formSchema = z.object({
   id: z.string().min(1, { message: "ID inválido" }),
   name: z.string().min(1, { message: "Digite um nome" }),
+  alignment: z.string().min(1, { message: "Selecione um alinhamento" }),
   books: z.array(z.string()).refine((value) => value.some((book) => book), {
     message: "Selecione pelo menos um livro",
   }),

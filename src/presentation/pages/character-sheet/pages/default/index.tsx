@@ -2,6 +2,8 @@
 // Externals
 import { Link } from "react-router-dom"
 import { CircleAlertIcon, FilePlus2Icon } from "lucide-react"
+// Hooks
+import { useCharacterSheetContext } from "../../context"
 // Utils
 import { ROUTES } from "@/utils/routes"
 // Components
@@ -15,16 +17,22 @@ import {
 
 // ==== Component ====
 export function CharacterSheetDefaultPage() {
+  // Hooks
+  const { characters } = useCharacterSheetContext()
+
   // Return
   return (
     <div className="flex flex-col gap-3 container p-3">
-      <Link to={ROUTES.CHARACTER_SHEET_CREATION} className="ml-auto">
+      <Link
+        to={ROUTES.CHARACTER_SHEET_CREATION}
+        className="ml-auto animate-fade-down"
+      >
         <Button className="gap-3">
           <FilePlus2Icon /> Criar
         </Button>
       </Link>
 
-      <Alert>
+      <Alert className="animate-fade-up">
         <AlertTitle className="flex gap-3 items-center">
           <CircleAlertIcon /> Sessão não iniciada!
         </AlertTitle>
@@ -34,8 +42,10 @@ export function CharacterSheetDefaultPage() {
         </AlertDescription>
       </Alert>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-        <CharacterCard />
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 animate-fade-up">
+        {characters.map((character) => (
+          <CharacterCard key={character.id} character={character} />
+        ))}
       </div>
     </div>
   )

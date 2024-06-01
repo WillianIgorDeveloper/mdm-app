@@ -6,14 +6,14 @@ import {
   DialogTrigger,
 } from "@/presentation/components/ui/dialog"
 
-export function CharacterCard() {
+export function CharacterCard({ character }: { character: any }) {
   return (
     <Dialog>
       <DialogTrigger>
-        <Card />
+        <Card character={character} />
       </DialogTrigger>
       <DialogContent>
-        <Info />
+        <Info character={character} />
       </DialogContent>
     </Dialog>
   )

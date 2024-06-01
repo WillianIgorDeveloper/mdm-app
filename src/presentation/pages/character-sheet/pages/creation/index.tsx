@@ -19,6 +19,7 @@ import { Class } from "./components/class"
 import { Info } from "./components/info"
 import { Race } from "./components/race"
 import { Form } from "@/presentation/components/ui/form"
+import { SkillPoints } from "./components/skill-points"
 
 // ==== Component ====
 export function CharacterSheetCreationPage() {
@@ -35,6 +36,7 @@ export function CharacterSheetCreationPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Save character sheet on local storage
     characters.push(values)
+    console.log(values)
     localStorage.setItem("characters", JSON.stringify(characters))
     // Redirect to character sheet
     navigate(ROUTES.CHARACTER_SHEET)
@@ -45,8 +47,11 @@ export function CharacterSheetCreationPage() {
     <div className="p-3">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="flex flex-col gap-3 lg:flex-row">
-            <Info form={form} />
+          <div className="flex flex-col gap-3 items-start lg:flex-row">
+            <div className="flex-1 flex flex-col gap-3">
+              <Info form={form} />
+              <SkillPoints form={form} />
+            </div>
             <Class form={form} />
             <Race form={form} />
           </div>
