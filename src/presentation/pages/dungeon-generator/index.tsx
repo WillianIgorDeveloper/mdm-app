@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { dungeonGenerator } from "@/utils/dungeon-generator"
 import { Button } from "@/presentation/components/ui/button"
-import type { Dungeon } from "@/utils/entities"
+import type { Dungeon } from "@/utils/entity"
 import {
   Card,
   CardContent,

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import "./index.css"
 // Middlewares
 import { OnlyPublicRoutes, ProtectedRoutes } from "@/middleware"
-import { CharacterSheetActionMiddleware } from "./presentation/pages/character-sheet/action-middleware"
+import { CharacterSheetActionMiddleware } from "@/presentation/pages/character-sheet/action-middleware"
 // State management
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 const queryClient = new QueryClient()
@@ -22,8 +22,6 @@ import { CharacterSheetUpPage } from "@/presentation/pages/character-sheet/pages
 import { NotFoundPage } from "@/presentation/pages/not-found"
 // OnlyPublicRoutes
 import { LoginPage } from "@/presentation/pages/login"
-// ProtectedRoutes
-import { ProfilePage } from "@/presentation/pages/profile"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -46,9 +44,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route element={<OnlyPublicRoutes />}>
             <Route path="login" element={<LoginPage />} />
           </Route>
-          <Route element={<ProtectedRoutes />}>
-            <Route path="profile" element={<ProfilePage />} />
-          </Route>
+          <Route element={<ProtectedRoutes />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
