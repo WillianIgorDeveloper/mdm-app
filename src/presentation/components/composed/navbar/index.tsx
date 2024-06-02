@@ -62,7 +62,7 @@ export function Navbar() {
                       </Button>
                     </NavLink>
                   </SheetTrigger>
-                  <SheetTrigger
+                  {/* <SheetTrigger
                     asChild // @ts-ignore
                     className={({ isActive }) =>
                       isActive ? "bg-card rounded-lg" : ""
@@ -73,14 +73,14 @@ export function Navbar() {
                         Gerador de dungeon
                       </Button>
                     </NavLink>
-                  </SheetTrigger>
-                  <SheetTrigger asChild>
+                  </SheetTrigger> */}
+                  {/* <SheetTrigger asChild>
                     <Link to={ROUTES.LOGIN} className="w-full">
                       <Button className="text-md gap-3 w-full justify-between">
                         Login <ChevronsRightIcon />
                       </Button>
                     </Link>
-                  </SheetTrigger>
+                  </SheetTrigger> */}
                 </nav>
               </SheetContent>
             </Sheet>
@@ -104,19 +104,19 @@ export function Navbar() {
                 Ficha de personagem
               </Button>
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to={ROUTES.DUNGEON_GENERATOR}
               className={({ isActive }) => (isActive ? "bg-card rounded-lg" : "")}
             >
               <Button variant="link" className="text-md">
                 Gerador de dungeon
               </Button>
-            </NavLink>
-            <Link to={ROUTES.LOGIN}>
+            </NavLink> */}
+            {/* <Link to={ROUTES.LOGIN}>
               <Button className="text-md gap-3">
                 Login <ChevronsRightIcon />
               </Button>
-            </Link>
+            </Link> */}
           </nav>
         </div>
       </header>
