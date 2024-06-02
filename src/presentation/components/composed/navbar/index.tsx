@@ -1,7 +1,7 @@
 // ==== Imports ====
 // Externals
 import { Link, NavLink } from "react-router-dom"
-import { ChevronsRightIcon, MenuIcon } from "lucide-react"
+import { MenuIcon } from "lucide-react"
 // Utils
 import { ROUTES } from "@/utils/routes"
 // Components
