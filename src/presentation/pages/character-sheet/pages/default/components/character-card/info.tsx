@@ -1,8 +1,6 @@
 import { Button } from "@/presentation/components/ui/button"
 import { DialogTrigger } from "@/presentation/components/ui/dialog"
 import { useCharacterSheetContext } from "@/presentation/pages/character-sheet/context"
-import { ROUTES } from "@/utils/routes"
-import { Link } from "react-router-dom"
 import { classes, races } from "@/utils/consts"
 
 export function Info({ character }: { character: any }) {

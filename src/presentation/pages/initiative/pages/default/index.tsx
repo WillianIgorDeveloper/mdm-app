@@ -9,7 +9,6 @@ import {
   SkullIcon,
   Trash2Icon,
   User2Icon,
-  UserPlus2Icon,
 } from "lucide-react"
 // Hooks
 import { useInitiativeContext } from "../../context"
