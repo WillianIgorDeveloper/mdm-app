@@ -10,8 +10,8 @@ import { ROUTES } from "@/utils/routes"
 // Types
 import type { z } from "zod"
 import type { formSchema } from "../pages/creation/schemas"
+import type { Character } from "@/utils/entity"
 import type {
-  Character,
   CharacterSheetContextType,
   CharacterSheetProviderType,
   SkillPointsKeysType,
