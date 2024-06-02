@@ -2,7 +2,7 @@
 // types
 import type { FormType } from "../../types"
 // Utils
-import { alignments } from "../../const/alignments"
+import { classes } from "@/utils/consts"
 // Components
 import {
   FormControl,
@@ -34,9 +34,9 @@ export function ClassSelect({ form }: { form: FormType }) {
               </SelectTrigger>
             </FormControl>
             <SelectContent>
-              {alignments.map((alignment) => (
-                <SelectItem key={alignment.id} value={alignment.id}>
-                  {alignment.name}
+              {classes.map((classe) => (
+                <SelectItem key={classe.id} value={classe.id}>
+                  {classe.name}
                 </SelectItem>
               ))}
             </SelectContent>

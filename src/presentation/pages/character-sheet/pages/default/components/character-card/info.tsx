@@ -3,22 +3,41 @@ import { DialogTrigger } from "@/presentation/components/ui/dialog"
 import { useCharacterSheetContext } from "@/presentation/pages/character-sheet/context"
 import { ROUTES } from "@/utils/routes"
 import { Link } from "react-router-dom"
+import { classes, races } from "@/utils/consts"
 
 export function Info({ character }: { character: any }) {
+  // Hooks
   const { handleDeleteCharacter } = useCharacterSheetContext()
+
+  // Functions
+  function getRaceName() {
+    return races.find((r) => r.id === character.race)?.name
+  }
+
+  function getClassName() {
+    return classes.find((c) => c.id === character.class)?.name
+  }
+
+  // Return
   return (
-    <>
-      <Link to={ROUTES.CHARACTER_SHEET_CREATION}>
-        <Button>Editar</Button>
-      </Link>
-      <DialogTrigger asChild>
-        <Button
-          variant="destructive"
-          onClick={() => handleDeleteCharacter({ character })}
-        >
-          Delete
-        </Button>
-      </DialogTrigger>
-    </>
+    <div className="flex flex-col gap-3 pt-4">
+      <div className="ml-auto space-x-3">
+        <Button disabled>Editar</Button>
+        <DialogTrigger asChild>
+          <Button
+            variant="destructive"
+            onClick={() => handleDeleteCharacter({ character })}
+          >
+            Delete
+          </Button>
+        </DialogTrigger>
+      </div>
+
+      <div className="space-y-3">
+        <h1 className="text-xl">{character.name}</h1>
+        <p>Raça: {getRaceName()}</p>
+        <p>Classe: {getClassName()}</p>
+      </div>
+    </div>
   )
 }

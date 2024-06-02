@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form"
 import { useCharacterSheetContext } from "../../context"
 import { useNavigate } from "react-router-dom"
 // Utils
-import { initialFormState } from "./const"
+import { initialFormState } from "./initial-form-state"
 import { ROUTES } from "@/utils/routes"
 // Components
 import { Button } from "@/presentation/components/ui/button"
