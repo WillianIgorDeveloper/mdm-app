@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { dungeonGenerator } from "@/utils/dungeon-generator"
+import { dungeonGenerator } from "@/utils/function/dungeon-generator"
 import { Button } from "@/presentation/components/ui/button"
 import type { Dungeon } from "@/utils/entity"
 import {
@@ -35,32 +35,13 @@ export function DungeonGeneratorPage() {
                 <p>
                   {piece.name} {piece.id}
                 </p>
-                {piece.trap && (
-                  <p>
-                    Armadilha: {piece.trap.name} - {piece.trap.description}
-                  </p>
-                )}
-                {piece.danger && (
-                  <p>
-                    Perigo: {piece.danger.name} - {piece.danger.description}
-                  </p>
-                )}
-                {piece.encounter && (
-                  <p>
-                    Encontro: {piece.encounter.name} - {piece.encounter.description}
-                  </p>
-                )}
+                {piece.trap && <p>Armadilha: {piece.trap.name}</p>}
+                {piece.danger && <p>Perigo: {piece.danger.name}</p>}
+                {piece.encounter && <p>Encontro: {piece.encounter.name}</p>}
                 {piece.chest && (
                   <div>
-                    <p>
-                      Baú: {piece.chest.name} - {piece.chest.description}
-                    </p>
-                    {piece.chest.trap && (
-                      <p>
-                        Armadilha: {piece.chest.trap.name} -{" "}
-                        {piece.chest.trap.description}
-                      </p>
-                    )}
+                    <p>Baú: {piece.chest.name}</p>
+                    {piece.chest.trap && <p>Armadilha: {piece.chest.trap.name}</p>}
                   </div>
                 )}
               </li>

@@ -30,43 +30,45 @@ export function Navbar() {
                 <MenuIcon />
               </SheetTrigger>
               <SheetContent side="top">
-                <nav className="flex flex-col gap-6">
+                <nav className="flex flex-col gap-3">
                   <SheetTrigger asChild className="text-center">
                     <Link to={ROUTES.HOME}>
                       <h1 className="font-serif text-2xl font-bold">MDM</h1>
                     </Link>
                   </SheetTrigger>
-                  <SheetTrigger asChild>
-                    <NavLink
-                      to={ROUTES.INITIATIVE}
-                      className={({ isActive }) =>
-                        isActive ? "bg-card rounded-lg" : ""
-                      }
-                    >
+                  <SheetTrigger
+                    asChild
+                    // @ts-ignore
+                    className={({ isActive }) =>
+                      isActive ? "bg-card rounded-lg" : ""
+                    }
+                  >
+                    <NavLink to={ROUTES.INITIATIVE}>
                       <Button variant="link" className="text-md">
                         Iniciativa
                       </Button>
                     </NavLink>
                   </SheetTrigger>
-                  <SheetTrigger asChild>
-                    <NavLink
-                      to={ROUTES.CHARACTER_SHEET}
-                      className={({ isActive }) =>
-                        isActive ? "bg-card rounded-lg" : ""
-                      }
-                    >
+                  <SheetTrigger
+                    asChild
+                    // @ts-ignore
+                    className={({ isActive }) =>
+                      isActive ? "bg-card rounded-lg" : ""
+                    }
+                  >
+                    <NavLink to={ROUTES.CHARACTER_SHEET}>
                       <Button variant="link" className="text-md">
                         Ficha de personagem
                       </Button>
                     </NavLink>
                   </SheetTrigger>
-                  <SheetTrigger asChild>
-                    <NavLink
-                      to={ROUTES.DUNGEON_GENERATOR}
-                      className={({ isActive }) =>
-                        isActive ? "bg-card rounded-lg" : ""
-                      }
-                    >
+                  <SheetTrigger
+                    asChild // @ts-ignore
+                    className={({ isActive }) =>
+                      isActive ? "bg-card rounded-lg" : ""
+                    }
+                  >
+                    <NavLink to={ROUTES.DUNGEON_GENERATOR}>
                       <Button variant="link" className="text-md">
                         Gerador de dungeon
                       </Button>
