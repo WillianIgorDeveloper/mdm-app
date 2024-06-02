@@ -50,6 +50,10 @@ export function InitiativeProvider({ children }: InitiativeProviderType) {
 
   function handleDeleteCard(id: number) {
     setInitiativeCards((prev) => prev.filter((card) => card.id !== id))
+    localStorage.setItem(
+      "initiativeCards",
+      JSON.stringify(initiativeCards.filter((card) => card.id !== id)),
+    )
   }
 
   function handleClearCards() {
