@@ -1,7 +1,7 @@
 import { Button } from "@/presentation/components/ui/button"
 import { DialogTrigger } from "@/presentation/components/ui/dialog"
 import { useCharacterSheetContext } from "@/presentation/pages/character-sheet/context"
-import { classes, races } from "@/utils/consts"
+import { classes, races } from "@/utils/const"
 
 export function Info({ character }: { character: any }) {
   // Hooks

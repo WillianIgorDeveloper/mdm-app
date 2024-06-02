@@ -2,7 +2,7 @@
 // types
 import type { FormType } from "../../types"
 // Utils
-import { alignments } from "@/utils/consts"
+import { alignments } from "@/utils/const"
 // Components
 import {
   FormControl,

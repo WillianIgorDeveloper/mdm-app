@@ -1,15 +1,10 @@
 export const initialFormState = {
   id: crypto.randomUUID(),
   name: "",
+  level: 1,
   alignment: "",
   books: [],
-  strength: "",
-  dexterity: "",
-  constitution: "",
-  intelligence: "",
-  wisdom: "",
-  charisma: "",
+  proficiency: 2,
   class: "",
   race: "",
-  level: 1,
 }

@@ -2,7 +2,7 @@
 // Types
 import type { FormType } from "../../types"
 // Utils
-import { books } from "@/utils/consts"
+import { books } from "@/utils/const"
 // Components
 import { Checkbox } from "@/presentation/components/ui/checkbox"
 import {

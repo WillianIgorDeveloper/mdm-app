@@ -2,7 +2,7 @@
 // Externals
 import { User2Icon } from "lucide-react"
 // Utils
-import { classes, races } from "@/utils/consts"
+import { classes, races } from "@/utils/const"
 // Components
 import { Badge } from "@/presentation/components/ui/badge"
 import { Card as CardUI, CardContent } from "@/presentation/components/ui/card"

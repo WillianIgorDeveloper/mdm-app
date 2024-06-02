@@ -24,7 +24,8 @@ import { SkillPoints } from "./components/skill-points"
 // ==== Component ====
 export function CharacterSheetCreationPage() {
   // Hooks
-  const { characters } = useCharacterSheetContext()
+  const { characters, skillPointsAvailable, skillPoints } =
+    useCharacterSheetContext()
   const navigate = useNavigate()
 
   // Form Handler
@@ -34,9 +35,10 @@ export function CharacterSheetCreationPage() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    // Check skill points
+    if (skillPointsAvailable.length > 0) return
     // Save character sheet on local storage
-    characters.push(values)
-    console.log(values)
+    characters.push({ ...values, ...skillPoints })
     localStorage.setItem("characters", JSON.stringify(characters))
     // Redirect to character sheet
     navigate(ROUTES.CHARACTER_SHEET)
@@ -50,7 +52,7 @@ export function CharacterSheetCreationPage() {
           <div className="flex flex-col gap-3 items-start lg:flex-row">
             <div className="flex-1 flex flex-col gap-3">
               <Info form={form} />
-              <SkillPoints form={form} />
+              <SkillPoints />
             </div>
             <Class form={form} />
             <Race form={form} />

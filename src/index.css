@@ -19,8 +19,9 @@
     --accent: 215 27.9% 16.9%;
     --accent-foreground: 210 20% 98%;
     --destructive: 0 100% 67%;
-    --success: 135 88% 35%;
     --destructive-foreground: 210 20% 98%;
+    --success: 135 88% 35%;
+    --success-foreground: 135 88% 35%;
     --border: 230 18% 33%;
     --input: 230 18% 33%;
     --ring: 230 18% 33%;
@@ -32,7 +33,10 @@
   * {
     @apply border-border;
   }
+  html {
+    @apply scroll-smooth antialiased;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground w-full min-h-screen;
   }
 }

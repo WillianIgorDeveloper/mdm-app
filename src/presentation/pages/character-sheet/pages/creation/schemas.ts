@@ -10,4 +10,5 @@ export const formSchema = z.object({
   class: z.string().min(1, { message: "Selecione uma classe" }),
   race: z.string().min(1, { message: "Selecione uma raça" }),
   level: z.number().int().min(1, { message: "Digite um nível válido" }),
+  proficiency: z.number().int().min(1, { message: "Digite um valor válido" }),
 })

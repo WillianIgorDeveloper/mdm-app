@@ -2,7 +2,7 @@
 // types
 import type { FormType } from "../../types"
 // Utils
-import { races } from "@/utils/consts"
+import { races } from "@/utils/const"
 // Components
 import {
   FormControl,

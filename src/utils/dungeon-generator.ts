@@ -1,4 +1,4 @@
-import { rooms, hallways, traps, dangers, chests, encounters } from "./consts"
+import { rooms, hallways, traps, dangers, chests, encounters } from "./const"
 import type { Dungeon } from "./entities"
 
 export function dungeonGenerator() {
