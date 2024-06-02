@@ -124,9 +124,24 @@ export function InitiativeProvider({ children }: InitiativeProviderType) {
   }, [initiativeCards])
 
   useEffect(() => {
+    // Save on local storage when the round changes, if it's not the first render
+    if (round !== -1) localStorage.setItem("round", JSON.stringify(round))
+  }, [round])
+
+  useEffect(() => {
+    // Save on local storage when the currentTurn changes, if it's not the first render
+    if (currentTurn !== -1)
+      localStorage.setItem("currentTurn", JSON.stringify(currentTurn))
+  }, [currentTurn])
+
+  useEffect(() => {
     // Load from local storage when the component mounts
     const savedInitiativeCards = localStorage.getItem("initiativeCards")
     if (savedInitiativeCards) setInitiativeCards(JSON.parse(savedInitiativeCards))
+    const savedRound = localStorage.getItem("round")
+    if (savedRound) setRound(Number(savedRound))
+    const savedCurrentTurn = localStorage.getItem("currentTurn")
+    if (savedCurrentTurn) setCurrentTurn(Number(savedCurrentTurn))
   }, [])
 
   // Return

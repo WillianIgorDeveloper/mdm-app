@@ -9,6 +9,7 @@ import {
   SkullIcon,
   Trash2Icon,
   User2Icon,
+  UserPlus2Icon,
 } from "lucide-react"
 // Hooks
 import { useInitiativeContext } from "../../context"
@@ -31,7 +32,7 @@ export function InitiativePageDefault() {
   return (
     <div className="container flex flex-col gap-6 p-3 py-6">
       <div className="flex flex-col">
-        <div className="flex gap-3 justify-end items-center">
+        <div className="flex gap-3 justify-end items-center animate-fade-down">
           {context.round === -1 ? (
             <Button
               onClick={context.handleStartCombat}
@@ -103,61 +104,19 @@ export function InitiativePageDefault() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-
-        {/* Desktop menu */}
-        <div className="hidden items-center justify-end gap-3">
-          {context.round === -1 ? (
-            <Button
-              onClick={context.handleStartCombat}
-              disabled={context.initiativeCards.length <= 1}
-            >
-              Iniciar combate
-            </Button>
-          ) : (
-            <div className="space-x-3">
-              <Button onClick={context.handleStartCombat} size="icon">
-                <RefreshCcwIcon />
-              </Button>
-              <Button
-                onClick={context.handlePrevTurn}
-                size="icon"
-                disabled={context.round === 1 && context.currentTurn === 0}
-              >
-                <ArrowBigLeftDashIcon />
-              </Button>
-              <Button onClick={context.handleNextTurn} size="icon">
-                <ArrowBigRightDashIcon />
-              </Button>
-            </div>
-          )}
-          <Button onClick={context.handleAddPlayerCard} className="gap-3">
-            Adicionar Jogador <User2Icon />
-          </Button>
-          <Button onClick={context.handleAddEnemyCard} className="gap-3">
-            Adicionar inimigo <SkullIcon />
-          </Button>
-          <Button
-            onClick={context.handleSort}
-            className="gap-3"
-            disabled={context.initiativeCards.length <= 1}
-          >
-            Ordenar <ArrowDownWideNarrow />
-          </Button>
-          <Button
-            onClick={context.handleClearCards}
-            className="gap-3"
-            disabled={context.initiativeCards.length === 0}
-          >
-            Limpar <Trash2Icon />
-          </Button>
-        </div>
       </div>
 
       <h2 className="text-lg font-semibold">
         {context.round !== -1 && `Rodada ${context.round}`}
       </h2>
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+      {context.initiativeCards.length === 0 && (
+        <p className="text-center text-gray-500 p-6 animate-fade-up">
+          Iniciativa vazia. Adicione jogadores ou inimigos.
+        </p>
+      )}
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 animate-fade-up">
         {context?.initiativeCards.map((card, index) => (
           <InitiativeCard
             key={card.id}
