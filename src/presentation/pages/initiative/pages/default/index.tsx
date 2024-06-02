@@ -33,7 +33,7 @@ export function InitiativePageDefault() {
     <div className="container flex flex-col gap-6 p-3 py-6">
       <div className="flex flex-col">
         <div className="flex gap-3 justify-end items-center animate-fade-down">
-          {context.round === -1 ? (
+          {context.round === -2 ? (
             <Button
               onClick={context.handleStartCombat}
               disabled={context.initiativeCards.length <= 1}
@@ -107,7 +107,7 @@ export function InitiativePageDefault() {
       </div>
 
       <h2 className="text-lg font-semibold">
-        {context.round !== -1 && `Rodada ${context.round}`}
+        {context.round !== -2 && `Rodada ${context.round}`}
       </h2>
 
       {context.initiativeCards.length === 0 && (
@@ -116,7 +116,7 @@ export function InitiativePageDefault() {
         </p>
       )}
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 animate-fade-up">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 animate-fade-up">
         {context?.initiativeCards.map((card, index) => (
           <InitiativeCard
             key={card.id}

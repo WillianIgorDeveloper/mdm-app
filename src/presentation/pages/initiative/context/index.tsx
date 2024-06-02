@@ -30,8 +30,8 @@ const InitiativeContext = createContext<InitiativeContextType | undefined>(undef
 export function InitiativeProvider({ children }: InitiativeProviderType) {
   // states
   const [initiativeCards, setInitiativeCards] = useState<InitiativeCardType[]>([])
-  const [round, setRound] = useState(-1)
-  const [currentTurn, setCurrentTurn] = useState(-1)
+  const [round, setRound] = useState(-2)
+  const [currentTurn, setCurrentTurn] = useState(-2)
 
   // Handlers
   function handleAddPlayerCard() {
@@ -55,8 +55,10 @@ export function InitiativeProvider({ children }: InitiativeProviderType) {
   function handleClearCards() {
     setInitiativeCards([])
     localStorage.removeItem("initiativeCards")
-    setRound(-1)
-    setCurrentTurn(-1)
+    setRound(-2)
+    setCurrentTurn(-2)
+    localStorage.removeItem("round")
+    localStorage.removeItem("currentTurn")
   }
 
   function handleUpdateValue({ id, newValue }: { id: number; newValue: string }) {
@@ -112,8 +114,10 @@ export function InitiativeProvider({ children }: InitiativeProviderType) {
   }
 
   function handleStopCombat() {
-    setRound(-1)
-    setCurrentTurn(-1)
+    setRound(-2)
+    setCurrentTurn(-2)
+    localStorage.removeItem("round")
+    localStorage.removeItem("currentTurn")
   }
 
   // Effects
@@ -125,12 +129,12 @@ export function InitiativeProvider({ children }: InitiativeProviderType) {
 
   useEffect(() => {
     // Save on local storage when the round changes, if it's not the first render
-    if (round !== -1) localStorage.setItem("round", JSON.stringify(round))
+    if (round !== -2) localStorage.setItem("round", JSON.stringify(round))
   }, [round])
 
   useEffect(() => {
     // Save on local storage when the currentTurn changes, if it's not the first render
-    if (currentTurn !== -1)
+    if (currentTurn !== -2)
       localStorage.setItem("currentTurn", JSON.stringify(currentTurn))
   }, [currentTurn])
 
