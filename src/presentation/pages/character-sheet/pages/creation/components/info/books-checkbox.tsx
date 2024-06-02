@@ -48,7 +48,7 @@ export function BooksCheckbox({ form }: { form: FormType }) {
                         />
                       </FormControl>
                       <FormLabel className="text-sm font-normal">
-                        {book.label}
+                        {book.name}
                       </FormLabel>
                     </FormItem>
                   )

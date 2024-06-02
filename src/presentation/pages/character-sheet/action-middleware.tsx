@@ -4,8 +4,8 @@ import { useCharacterSheetContext } from "./context"
 
 export function CharacterSheetActionMiddleware() {
   const { id } = useParams()
-  const { checkCharacterExists } = useCharacterSheetContext()
-  return checkCharacterExists(id ?? "") ? (
+  const { checkIfCharacterExists } = useCharacterSheetContext()
+  return checkIfCharacterExists(id ?? "") ? (
     <Outlet />
   ) : (
     <Navigate to={ROUTES.CHARACTER_SHEET} replace={true} />

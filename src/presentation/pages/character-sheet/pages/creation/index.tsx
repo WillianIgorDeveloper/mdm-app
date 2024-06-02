@@ -1,4 +1,4 @@
-// ==== Imports ====
+//==== Imports ====//
 // Externals
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Link } from "react-router-dom"
@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form"
 import { useCharacterSheetContext } from "../../context"
 import { useNavigate } from "react-router-dom"
 // Utils
-import { initialFormState } from "./initial-form-state"
+import { initialFormState } from "./const"
 import { ROUTES } from "@/utils/routes"
 // Components
 import { Button } from "@/presentation/components/ui/button"
@@ -20,8 +20,9 @@ import { Info } from "./components/info"
 import { Race } from "./components/race"
 import { Form } from "@/presentation/components/ui/form"
 import { SkillPoints } from "./components/skill-points"
+import { Antecedent } from "./components/antecedent"
 
-// ==== Component ====
+//==== Component ====//
 export function CharacterSheetCreationPage() {
   // Hooks
   const { characters, skillPointsAvailable, skillPoints } =
@@ -54,8 +55,11 @@ export function CharacterSheetCreationPage() {
               <Info form={form} />
               <SkillPoints />
             </div>
+            <div className="flex-1 flex flex-col gap-3">
+              <Antecedent form={form} />
+              <Race form={form} />
+            </div>
             <Class form={form} />
-            <Race form={form} />
           </div>
           <div className="w-full flex justify-end gap-3 my-3">
             <Link to={ROUTES.CHARACTER_SHEET}>

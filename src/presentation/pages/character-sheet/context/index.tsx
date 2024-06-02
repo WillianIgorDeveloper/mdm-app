@@ -3,45 +3,42 @@
 import { createContext } from "react"
 // Hooks
 import { useContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 // Utils
-import { availableSkillPoints } from "@/utils/const"
+import { initialAvailableSkillPoints, initialSkillPoints } from "./const"
+import { ROUTES } from "@/utils/routes"
 // Types
+import type { z } from "zod"
+import type { formSchema } from "../pages/creation/schemas"
 import type {
   Character,
   CharacterSheetContextType,
   CharacterSheetProviderType,
+  SkillPointsKeysType,
 } from "./types"
-import type { z } from "zod"
-import type { formSchema } from "../pages/creation/schemas"
-import { useNavigate } from "react-router-dom"
-import { ROUTES } from "@/utils/routes"
 
 // ==== Context ====
 const CharacterSheetContext = createContext<CharacterSheetContextType | null>(null)
 
 // ==== Provider ====
 export function CharacterSheetProvider({ children }: CharacterSheetProviderType) {
+  // Hooks
   const navigate = useNavigate()
 
   // states
   const [characters, setCharacters] = useState<Character[]>([])
-  const [skillPointsAvailable, setSkillPointsAvailable] =
-    useState(availableSkillPoints)
-  const [skillPoints, setSkillPoints] = useState({
-    strength: "",
-    dexterity: "",
-    constitution: "",
-    intelligence: "",
-    wisdom: "",
-    charisma: "",
-  })
+  const [skillPoints, setSkillPoints] = useState(initialSkillPoints)
+  const [skillPointsAvailable, setSkillPointsAvailable] = useState(
+    initialAvailableSkillPoints,
+  )
 
   // Handlers
-  function handleDeleteCharacter({ character }: { character: any }) {
+  function handleDeleteCharacter({ character }: { character: Character }) {
+    // Remove character from the list
     setCharacters((characters) =>
       characters.filter((char) => char.id !== character.id),
     )
-
+    // Remove character from local storage
     localStorage.setItem(
       "characters",
       JSON.stringify(characters.filter((char) => char.id !== character.id)),
@@ -51,7 +48,7 @@ export function CharacterSheetProvider({ children }: CharacterSheetProviderType)
   function handleClickSkillPoint({
     point,
     type,
-  }: { point: string; type: keyof typeof skillPoints }) {
+  }: { point: string; type: SkillPointsKeysType }) {
     if (skillPoints[type] === point) {
       setSkillPoints({ ...skillPoints, [type]: "" })
       setSkillPointsAvailable([...skillPointsAvailable, point])

@@ -1,3 +1,3 @@
 export function CharacterSheetEditPage() {
-  return <></>
+  return <h1>Editar personagem</h1>
 }
